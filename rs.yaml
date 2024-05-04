@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata: 
+  name: todo-controller
+spec: 
+  replicas: 2
+  selector: 
+    matchExpressions: 
+    - key: app
+      operator: In
+      values: 
+      - todo-ui
+  template:
+    metadata:
+      name: todo-ui-pod
+      labels: 
+        app: todo-ui
+    spec:
+      containers:
+      - image: subho9407/todo-ui
+        name: todo-ui-container
+        ports: 
+        - containerPort: 80

@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: todo-ui-pod
+spec:
+  containers:
+  - image: subho9407/todo-ui
+    name: todo-ui-container
+    ports: 
+    - containerPort: 80
